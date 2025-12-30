@@ -122,28 +122,28 @@ Struktur kode dibangun berdasarkan rancangan UML Class Diagram berikut:
     Nama: Budi Santoso
     Jenis Trauma: Gempa Bumi
     Mental (Ringan/Sedang/Berat): Berat
-
-[INFO] Notifikasi dikirim ke: Budi Santoso (via EMAIL)
->> Sukses: Data tersimpan di file JSON.
+    [INFO] Notifikasi dikirim ke: Budi Santoso (via EMAIL)
+    >> Sukses: Data tersimpan di file JSON.
    ```
 
    **Melihat Data:**
    ```
    Pilih menu: 2
    --- Data Korban (Dari JSON) ---
-[SURVIVOR] Budi Santoso | Trauma: Gempa Bumi | Status: Berat
+    [SURVIVOR] Budi Santoso | Trauma: Gempa Bumi | Status: Berat
    ```
 
    **Cek Skor Dampak:**
    ```
    Pilih menu: 3
    ID Korban: 101
->> Skor Dampak: 90
+    >> Skor Dampak: 90
    ```
 
    **Cek Status:**
    ```
    Pilih menu: 4
+   ```
 
 ---
 

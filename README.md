@@ -140,7 +140,7 @@ Struktur kode dibangun berdasarkan rancangan UML Class Diagram berikut:
     >> Skor Dampak: 90
    ```
 
-   **Cek Status:**
+   **Keluar:**
    ```
    Pilih menu: 4
    ```

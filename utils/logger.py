@@ -2,6 +2,7 @@ import logging
 import os
 
 def setup_logger():
+    """Konfigurasi dan kembalikan logger aplikasi."""
     if not os.path.exists('logs'):
         os.makedirs('logs')
         

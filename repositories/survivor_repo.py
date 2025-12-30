@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 from typing import List, Optional
 from models.users import Survivor
 
+"""
+Interface untuk repository survivor. menerapkan defedency inversion principle.
+"""
 class ISurvivorRepository(ABC):
     @abstractmethod
     def save(self, survivor: Survivor) -> None:
@@ -16,6 +19,9 @@ class ISurvivorRepository(ABC):
         pass
 
 class InMemorySurvivorRepository(ISurvivorRepository):
+    """
+    Implementasi repository survivor yang menyimpan data di memori.
+    """
     def __init__(self):
         self._storage = []
 

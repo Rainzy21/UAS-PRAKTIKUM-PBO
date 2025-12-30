@@ -1,4 +1,3 @@
-```markdown
 # Sistem Layanan Dukungan Psikososial (Trauma Healing CLI)
 
 Aplikasi berbasis **Command Line Interface (CLI)** ini dirancang untuk mengelola data korban bencana alam serta melakukan asesmen awal kesehatan mental (*Trauma Healing*). Proyek ini dibangun sebagai Tugas Besar Pemrograman Berorientasi Objek (PBO) dengan menerapkan standar **Layered Architecture**, **SOLID Principles**, **Unit Testing**, dan **Data Persistence (JSON)**.
@@ -16,7 +15,7 @@ Dalam situasi pasca-bencana, pendataan korban dan identifikasi tingkat trauma se
 ## Struktur Proyek
 Sistem ini menggunakan **Layered Architecture** untuk memisahkan tanggung jawab (*concern*) antara data, logika bisnis, dan antarmuka.
 
-```text
+```
 UAS_Trauma_Healing/
 │
 ├── models/             # [Entity Layer] Representasi Objek Nyata
@@ -93,12 +92,103 @@ Struktur kode dibangun berdasarkan rancangan UML Class Diagram berikut:
 
 ---
 
-**Identitas Pengembang:**
+---
 
-* **Nama:** [Isi Nama Anda]
-* **NIM:** [Isi NIM Anda]
-* **Kelas:** [Isi Kelas Anda]
+## Cara Menggunakan
+
+
+1. **Jalankan aplikasi**
+   ```bash
+   python main.py
+   ```
+
+2. **Menu Utama**
+   ```
+   === SISTEM TRAUMA HEALING (JSON STORAGE) ===
+
+    Menu Utama:
+    1. Daftar Korban
+    2. Lihat Data
+    3. Cek Skor Dampak
+    4. Keluar
+   ```
+
+3. **Contoh Penggunaan**
+
+   **Mendaftarkan Korban Baru:**
+   ```
+    Pilih menu: 1
+    Masukkan ID (Angka): 101
+    Nama: Budi Santoso
+    Jenis Trauma: Gempa Bumi
+    Mental (Ringan/Sedang/Berat): Berat
+
+[INFO] Notifikasi dikirim ke: Budi Santoso (via EMAIL)
+>> Sukses: Data tersimpan di file JSON.
+   ```
+
+   **Melihat Data:**
+   ```
+   Pilih menu: 2
+   --- Data Korban (Dari JSON) ---
+[SURVIVOR] Budi Santoso | Trauma: Gempa Bumi | Status: Berat
+   ```
+
+   **Cek Skor Dampak:**
+   ```
+   Pilih menu: 3
+   ID Korban: 101
+>> Skor Dampak: 90
+   ```
+
+   **Cek Status:**
+   ```
+   Pilih menu: 4
+
+---
+
+## Logging
 
 ```
-
+2025-12-31 05:25:34,650 - INFO - [2025-12-31 05:25:34] TRANSAKSI SUKSES: Survivor Budi (ID: 2) berhasil didaftarkan.
+2025-12-31 05:25:34,651 - INFO - Asesmen Selesai: ID 2 mendapatkan skor 90
+.2025-12-31 05:25:34,651 - WARNING - Gagal daftar: Data input tidak lengkap untuk ID 3
+.2025-12-31 05:25:34,652 - INFO - [2025-12-31 05:25:34] TRANSAKSI SUKSES: Survivor Test User (ID: 1) berhasil didaftarkan.
+2025-12-31 05:25:34,652 - INFO - Aktivitas: Mengambil seluruh data survivor.
 ```
+
+---
+
+---
+
+## Format Data Json
+
+Data disimpan dalam file `data_korban.json` dengan format:
+
+```json
+[
+    {
+        "id": 2,
+        "name": "Nada",
+        "trauma_type": "Takut",
+        "mental_status": "Ringan",
+        "created_at": "2025-12-31 05:11:37"
+    }
+]
+```
+
+---
+
+---
+
+**Kelompok 12 (Sistem layanan dukungan psikososial (Trauma Healing)):**
+
+1. Ariyadi - 2411102441240
+2. Zalfa Faris Ibrahim - 2411102441136
+3. Andi Fathur Rahman Ismail - 2411102441209
+4. Hervino Islami Fasha - 2411102441249
+5. Alfito Dwi Kurniawan - 2411102441238
+6. ⁠Athaya Hassya Fausta-2411102441221
+7. Andi Muh Fitrah A.K - 2411102441205
+
+---

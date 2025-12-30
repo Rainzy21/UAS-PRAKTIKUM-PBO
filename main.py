@@ -1,5 +1,5 @@
 import sys
-from repositories.survivor_repo import InMemorySurvivorRepository
+from repositories.json_repo import JsonSurvivorRepository
 from services.counseling import TraumaService
 from utils.logger import setup_logger
 from utils.notifications import EmailNotificationService
@@ -9,7 +9,7 @@ logger = setup_logger()
 
 def main():
     """Fungsi utama menjalankan aplikasi CLI Trauma Healing."""
-    repo_storage = InMemorySurvivorRepository()
+    repo_storage = JsonSurvivorRepository("data_korban.json")
     
     """Inisialisasi Service dengan Dependency Injection."""
     app_service = TraumaService(repo_storage)

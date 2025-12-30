@@ -59,3 +59,23 @@ class Survivor(User):
     def get_role_info(self) -> str:
         """Implementasi abstrak untuk mendapatkan info peran."""
         return f"[SURVIVOR] {self.name} | Trauma: {self.__trauma_type} | Status: {self.__mental_status}"
+    
+    def to_dict(self):
+        """Mengubah objek menjadi dictionary agar bisa disimpan ke JSON."""
+        return {
+            "id": self.id,  # Menggunakan property getter
+            "name": self.name,
+            "trauma_type": self._Survivor__trauma_type, # Akses atribut private
+            "mental_status": self._Survivor__mental_status,
+            "created_at": self.created_at_str
+        }
+    
+    @classmethod
+    def from_dict(cls, data):
+        """Mengubah dictionary dari JSON kembali menjadi Objek Survivor."""
+        return cls(
+            user_id=data["id"],
+            name=data["name"],
+            trauma_type=data["trauma_type"],
+            mental_status=data["mental_status"]
+        )

@@ -21,7 +21,7 @@ class User(ABC):
         return self.__name
     
     @property
-    def created_at(self):
+    def created_at_str(self) -> str:
         return self.__created_at.strftime("%Y-%m-%d %H:%M:%S")
 
     @abstractmethod
@@ -60,13 +60,19 @@ class Survivor(User):
         """Implementasi abstrak untuk mendapatkan info peran."""
         return f"[SURVIVOR] {self.name} | Trauma: {self.__trauma_type} | Status: {self.__mental_status}"
     
-    def to_dict(self):
-        """Mengubah objek menjadi dictionary agar bisa disimpan ke JSON."""
+    def to_dict(self) -> dict:
         return {
-            "id": self.id,  # Menggunakan property getter
-            "name": self.name,
-            "trauma_type": self._Survivor__trauma_type, # Akses atribut private
-            "mental_status": self._Survivor__mental_status,
+            "id": self.id,           # Pakai Property Getter (Aman)
+            "name": self.name,       # Pakai Property Getter (Aman)
+            
+            # HATI-HATI DI SINI:
+            # Pastikan nama variabelnya SAMA PERSIS dengan di def __init__
+            # Jika di init: self.__trauma_type
+            # Di sini panggil: self._Survivor__trauma_type  <-- (Format: _ClassName__variableName)
+            # ATAU lebih aman panggil atribut langsung jika masih di dalam class:
+            "trauma_type": self.__trauma_type, 
+            "mental_status": self.__mental_status,
+            
             "created_at": self.created_at_str
         }
     
